@@ -32,13 +32,13 @@ jobs:
 
       - name: Install dependencies
         run: |  
-        cd client
-        npm i
+          cd client
+          npm i
     
       - name: Build Vite App
         run: |
-        cd client
-        npm run build
+          cd client
+          npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
