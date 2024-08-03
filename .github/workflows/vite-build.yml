@@ -11,6 +11,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+    pages: write      
+    id-token: write  
+    contents: read
 
 concurrency:
     group: 'pages'
@@ -60,10 +64,6 @@ jobs:
       url: ${{steps.deployment.outputs.page_url}}
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      pages: write      
-      id-token: write  
-      contents: read
     steps:  
       - name: Deploy to GitHub Pages
         id: deployment
