@@ -10,8 +10,13 @@ on:
   pull_request:
     branches: [ "main" ]
 
+
+concurrency:
+    group: 'pages'
+    cancel-in-progress: true
+
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -22,13 +27,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Checkout Repository
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@main
 
-      - name: Use Node.js 20
-        uses: actions/setup-node@v2
+      - name: Setup NodeJS
+        uses: actions/setup-node@main
         with:
           node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: client/package-lock.json
 
       - name: Install dependencies
         run: |  
@@ -39,6 +47,9 @@ jobs:
         run: |
           cd client
           npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@main   
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
@@ -54,6 +65,8 @@ jobs:
     permissions:
       pages: write      
       id-token: write  
+      contents: read
+      id-token: write
     steps:  
       - name: Deploy to GitHub Pages
         id: deployment
