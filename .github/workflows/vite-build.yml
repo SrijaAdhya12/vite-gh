@@ -64,7 +64,6 @@ jobs:
       pages: write      
       id-token: write  
       contents: read
-      id-token: write
     steps:  
       - name: Deploy to GitHub Pages
         id: deployment
