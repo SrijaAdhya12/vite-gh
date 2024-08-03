@@ -1,9 +1,7 @@
 name: ⚒️ Vite Build
 
-# Controls when the workflow will run
 on:
     workflow_dispatch:
-# Triggers the workflow on push or pull request events but only for the "main" branch
     push:
         branches: ['main']
     pull_request:
@@ -18,14 +16,9 @@ concurrency:
     group: 'pages'
     cancel-in-progress: true
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-
 jobs:
-# This workflow contains a single job called "build"
     build:
-      # Steps represent a sequence of tasks that will be executed as part of the job
         runs-on: ubuntu-latest
-      # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
             - name: Checkout Repository
               uses: actions/checkout@main
