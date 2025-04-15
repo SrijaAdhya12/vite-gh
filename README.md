@@ -1,4 +1,4 @@
-    updated on: 24th January 2025, Friday
+    updated on: 15th April 2025, Tuesday
 
 <div align=center>
     <a href="https://github.com/SrijaAdhya12/vite-gh">
@@ -121,4 +121,4 @@
 [line]: https://user-images.githubusercontent.com/75939390/137615281-3a875960-92cc-407f-97fe-fd2319bdb252.png
 [License]: https://github.com/SrijaAdhya12/vite-gh/blob/main/LICENSE
 
-<!-- 24/01/25 -->
+<!-- 15/04/25 -->
